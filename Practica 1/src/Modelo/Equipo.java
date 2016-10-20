@@ -132,6 +132,28 @@ public class Equipo {
         
     }
     
+    public void modificar_jugador(int id_jugador_modificable, String nueva_demarcacion){
+        
+        int i = 0;
+        boolean encontrado = false;
+        
+        while(i < this.jugadores.size() && encontrado == false){
+            
+            if(this.jugadores.get(i).getId_jugador() == id_jugador_modificable){
+                
+                encontrado = true;
+                this.jugadores.get(i).setDemarcacion(nueva_demarcacion);
+                
+            }
+            
+            i++;
+            
+        }
+        
+        System.out.println("Se ha realizado la modificacion con exito\n");
+        
+    }
+    
     @Override
     public String toString() {
 

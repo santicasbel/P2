@@ -147,5 +147,12 @@ public class Liga {
         }
         
     }
+    
+    public void modificar_jugador(int id_equipo_modificacion, int id_jugador_modificable, String nueva_demarcacion){
+        
+        Equipo e1 = equipos.get(id_equipo_modificacion - 1);
+
+        e1.modificar_jugador(id_jugador_modificable, nueva_demarcacion);
+    }
 
 }

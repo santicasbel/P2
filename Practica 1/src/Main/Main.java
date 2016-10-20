@@ -78,7 +78,7 @@ public class Main {
             try{
             System.out.println("1. Registrar un nuevo equipo" + "\n" + "2. Registrar un nuevo jugador " + "\n" + "3. Registrar un traspaso de jugador " + "\n"
                     + "4. Listar en pantalla los datos básicos de los equipos registrados" + "\n" + "5. Listar los jugadores de cada equipo" + "\n"
-                    + "6. Mostrar los traspasos realizados" + "\n" + "7. Salir del programa" + "\n");
+                    + "6. Mostrar los traspasos realizados" + "\n" + "7. Modificar demarcacion" + "\n" + "8. Salir del programa" + "\n");
 
             Scanner entradaEscaner = new Scanner(System.in);
 
@@ -115,7 +115,7 @@ public class Main {
                     System.out.println("Introduce la clausula del jugador");
                     String clausula = entradaEscaner.nextLine();
                     
-                    liga.listar_datos_equipos();
+                    //liga.listar_datos_equipos();
                     String equipos = liga.listar_datos_equipos();
                     System.out.println(equipos);
                     
@@ -127,14 +127,14 @@ public class Main {
                     break;
                 
                 case "3":
-                    liga.listar_datos_equipos();
+                    //liga.listar_datos_equipos();
                     equipos = liga.listar_datos_equipos();
                     System.out.println(equipos);
                     
                     System.out.println("Introduce el id del equipor origen");
                     String id_equipo_origen = entradaEscaner.nextLine();
                     
-                    liga.listar_jugadores(Integer.parseInt(id_equipo_origen));
+                    //liga.listar_jugadores(Integer.parseInt(id_equipo_origen));
                     String jugadores = liga.listar_jugadores(Integer.parseInt(id_equipo_origen));
                     System.out.println(jugadores);
                     
@@ -169,8 +169,29 @@ public class Main {
                     System.out.println(traspasos);
 
                     break;
-                
+                    
                 case "7":
+                    
+                    equipos = liga.listar_datos_equipos();
+                    System.out.println(equipos);
+                    
+                    System.out.println("Introduce el id del equipor del jugador a modificar");
+                    String id_equipo_modificacion = entradaEscaner.nextLine();
+                    
+                    String jugadores_modificables = liga.listar_jugadores(Integer.parseInt(id_equipo_modificacion));
+                    System.out.println(jugadores_modificables);
+                    
+                    System.out.println("Introduce el id del jugador a modificar");
+                    String id_jugador_modificable = entradaEscaner.nextLine();
+                    
+                    System.out.println("Introduce la nueva demarcacion");
+                    String nueva_demarcacion = entradaEscaner.nextLine();
+                    
+                    liga.modificar_jugador(Integer.parseInt(id_equipo_modificacion), Integer.parseInt(id_jugador_modificable), nueva_demarcacion);
+                    
+                    break;
+                
+                case "8":
                     FileWriter fichero = null;
                     PrintWriter pw = null;
                     
@@ -204,14 +225,15 @@ public class Main {
                        }
                     }
                     break;
-                default:
-                    System.out.println("\nOpcion incorrecta\n");
-                    break;
+                    
+                    default:
+                        System.out.println("\nOpcion incorrecta\n");
+                        break;
                 
             }
             }catch(Exception e3) { System.out.println( " \n Algún campo no escrito correctamente  \n");
         }
-        } while (!"7".equals(eleccion));
+        } while (!"8".equals(eleccion));
         
         
 
