@@ -24,9 +24,9 @@ public class Main {
     @SuppressWarnings("empty-statement")
     public static void main(String[] args) throws IOException {
 
-        Equipo equipo1 = new Equipo("Valencia", 30000000, 100000);
-        Equipo equipo2 = new Equipo("Barcelona", 120000000, 500000);
-        Equipo equipo3 = new Equipo("Real Madrid", 100000000, 400000);
+        Equipo equipo1 = new Equipo("Valencia", 30000000, 100000, 10000000, 5000000);
+        Equipo equipo2 = new Equipo("Barcelona", 120000000, 500000, 15000000, 9000000);
+        Equipo equipo3 = new Equipo("Real Madrid", 100000000, 400000, 8000000, 4000000);
 
         Jugador j1 = new Jugador("Leo Messi", "Delantero", 100000000);
         Jugador j2 = new Jugador("Ter Stegen", "Portero", 20000000);
