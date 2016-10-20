@@ -24,9 +24,9 @@ public class Main {
     @SuppressWarnings("empty-statement")
     public static void main(String[] args) throws IOException {
 
-        Equipo equipo1 = new Equipo("Valencia", 30000000, 100000, 10000000, 5000000);
-        Equipo equipo2 = new Equipo("Barcelona", 120000000, 500000, 15000000, 9000000);
-        Equipo equipo3 = new Equipo("Real Madrid", 100000000, 400000, 8000000, 4000000);
+        Equipo equipo1 = new Equipo("Valencia", 30000000, 100000, 10000000);
+        Equipo equipo2 = new Equipo("Barcelona", 120000000, 500000, 15000000);
+        Equipo equipo3 = new Equipo("Real Madrid", 100000000, 400000, 8000000);
 
         Jugador j1 = new Jugador("Leo Messi", "Delantero", 100000000);
         Jugador j2 = new Jugador("Ter Stegen", "Portero", 20000000);
@@ -98,7 +98,10 @@ public class Main {
                     System.out.println("Introduce los abonados del equipo");
                     String abonados = entradaEscaner.nextLine();
                     
-                    liga.nuevo_equipo(nombre_equipo, Integer.parseInt(caja_actual), Integer.parseInt(abonados));
+                    System.out.println("Introduce el gasto general del equipo");
+                    String gastos_generales = entradaEscaner.nextLine();
+                    
+                    liga.nuevo_equipo(nombre_equipo, Integer.parseInt(caja_actual), Integer.parseInt(abonados), Integer.parseInt(gastos_generales));
                     break;
                     
                 case "2":

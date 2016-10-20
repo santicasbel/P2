@@ -19,18 +19,16 @@ public class Equipo {
     private String nombre;
     private int caja_actual;
     private int abonados;
-    private int gastos_fijos;
-    private int gastos_variables;
+    private int gastos_generales;
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
     
-    public Equipo(String nombre, int caja_actual, int abonados, int gastos_fijos, int gastos_variables){
+    public Equipo(String nombre, int caja_actual, int abonados, int gastos_generales){
         
         this.id_equipo = contador;
         this.nombre = nombre;
         this.caja_actual = caja_actual;
         this.abonados = abonados;
-        this.gastos_fijos = gastos_fijos;
-        this.gastos_variables= gastos_variables;
+        this.gastos_generales = gastos_generales;
         
         this.contador += 1;
         
@@ -140,7 +138,7 @@ public class Equipo {
         String id = String.format("%03d", this.id_equipo);
         
         String s = id + "\t" + this.nombre + "\t" + " - Abonados:" + this.abonados + "\t" + " - Caja Actual:" + this.caja_actual + " \n"
-                   + "Gaston fijos anuales: " + this.gastos_fijos + " - " + "Gastos variables anuales: " + this.gastos_variables + "\n\n";
+                   + "Gaston generales: " + this.gastos_generales + "\n\n";
 
         return s;
 

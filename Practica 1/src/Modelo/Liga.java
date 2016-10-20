@@ -96,9 +96,9 @@ public class Liga {
         }
     }
 
-    public void nuevo_equipo(String nombre, int caja_actual, int abonados) {
+    public void nuevo_equipo(String nombre, int caja_actual, int abonados, int gastos_generales) {
 
-        Equipo e_aux = new Equipo(nombre, caja_actual, abonados);
+        Equipo e_aux = new Equipo(nombre, caja_actual, abonados, gastos_generales);
 
         this.setEquipos(e_aux);
 
