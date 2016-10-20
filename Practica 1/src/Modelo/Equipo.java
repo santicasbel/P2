@@ -46,6 +46,10 @@ public class Equipo {
         return abonados;
     }
 
+    public int getGastos_generales() {
+        return gastos_generales;
+    }
+
     public ArrayList<Jugador> getJugadores() {
         return jugadores;
     }
@@ -151,6 +155,25 @@ public class Equipo {
         }
         
         System.out.println("Se ha realizado la modificacion con exito\n");
+        
+    }
+    
+    public void fair_play(){
+        
+        int total = 0;
+        
+        total += this.getGastos_generales();
+        
+        for(int i = 0; i < this.jugadores.size(); i++){
+            
+            total += (this.jugadores.get(i).getSalario_anual() * 2);
+            
+        }
+        
+        if (this.getCaja_actual() >= total)
+            System.out.println("El equipo cumple el fair play\n");
+        else
+            System.out.println("El equipo no cumple el fair play\n");
         
     }
     

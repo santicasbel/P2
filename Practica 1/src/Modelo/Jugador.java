@@ -17,13 +17,15 @@ public class Jugador {
     private String nombre;
     private String demarcacion;
     private int clausula;
+    private int salario_anual;
     
-    public Jugador(String nombre, String demarcacion, int clausula){
+    public Jugador(String nombre, String demarcacion, int clausula, int salario_anual){
         
         this.id_jugador = contador;
         this.nombre = nombre;
         this.demarcacion = demarcacion;
         this.clausula = clausula;
+        this.salario_anual = salario_anual;
         
         this.contador += 1;
         
@@ -55,6 +57,10 @@ public class Jugador {
 
     public int getId_jugador() {
         return id_jugador;
+    }
+
+    public int getSalario_anual() {
+        return salario_anual;
     }
     
     @Override

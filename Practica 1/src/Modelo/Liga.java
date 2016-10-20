@@ -106,9 +106,9 @@ public class Liga {
 
     }
 
-    public void nuevo_jugador(String nombre, String demarcacion, int clausula, int id_equipo) {
+    public void nuevo_jugador(String nombre, String demarcacion, int clausula, int id_equipo, int sueldo_anual) {
 
-        Jugador j_aux = new Jugador(nombre, demarcacion, clausula);
+        Jugador j_aux = new Jugador(nombre, demarcacion, clausula, sueldo_anual);
 
         this.equipos.get(id_equipo - 1).setJugadores(j_aux);
 
@@ -153,6 +153,14 @@ public class Liga {
         Equipo e1 = equipos.get(id_equipo_modificacion - 1);
 
         e1.modificar_jugador(id_jugador_modificable, nueva_demarcacion);
+    }
+    
+    public void fair_play(int id_equipo_fair_play){
+        
+        Equipo e1 = equipos.get(id_equipo_fair_play - 1);
+        
+        e1.fair_play();
+        
     }
 
 }

@@ -24,24 +24,24 @@ public class Main {
     @SuppressWarnings("empty-statement")
     public static void main(String[] args) throws IOException {
 
-        Equipo equipo1 = new Equipo("Valencia", 30000000, 100000, 10000000);
-        Equipo equipo2 = new Equipo("Barcelona", 120000000, 500000, 15000000);
-        Equipo equipo3 = new Equipo("Real Madrid", 100000000, 400000, 8000000);
+        Equipo equipo1 = new Equipo("Valencia", 30000000, 100000, 100000);
+        Equipo equipo2 = new Equipo("Barcelona", 120000000, 500000, 100000);
+        Equipo equipo3 = new Equipo("Real Madrid", 100000000, 400000, 50000000);
 
-        Jugador j1 = new Jugador("Leo Messi", "Delantero", 100000000);
-        Jugador j2 = new Jugador("Ter Stegen", "Portero", 20000000);
-        Jugador j3 = new Jugador("Pique", "Defensa", 40000000);
-        Jugador j4 = new Jugador("Busquets", "Medio", 60000000);
+        Jugador j1 = new Jugador("Leo Messi", "Delantero", 100000000, 30000000);
+        Jugador j2 = new Jugador("Ter Stegen", "Portero", 20000000, 10000000);
+        Jugador j3 = new Jugador("Pique", "Defensa", 40000000, 15000000);
+        Jugador j4 = new Jugador("Busquets", "Medio", 60000000, 20000000);
 
-        Jugador j5 = new Jugador("Cristiano Ronaldo", "Delantero", 90000000);
-        Jugador j6 = new Jugador("Keylor Navas", "Portero", 30000000);
-        Jugador j7 = new Jugador("Sergio Ramos", "Defensa", 40000000);
-        Jugador j8 = new Jugador("Modric", "Medio", 70000000);
+        Jugador j5 = new Jugador("Cristiano Ronaldo", "Delantero", 90000000, 50000000);
+        Jugador j6 = new Jugador("Keylor Navas", "Portero", 30000000, 40000000);
+        Jugador j7 = new Jugador("Sergio Ramos", "Defensa", 40000000, 15000000);
+        Jugador j8 = new Jugador("Modric", "Medio", 70000000, 20000000);
 
-        Jugador j9 = new Jugador("Rodrigo", "Delantero", 20000000);
-        Jugador j10 = new Jugador("Diego Alves", "Portero", 30000000);
-        Jugador j11 = new Jugador("Mustafi", "Defensa", 40000000);
-        Jugador j12 = new Jugador("Javi Fuego", "Medio", 20000000);
+        Jugador j9 = new Jugador("Rodrigo", "Delantero", 20000000, 100000);
+        Jugador j10 = new Jugador("Diego Alves", "Portero", 30000000, 100000);
+        Jugador j11 = new Jugador("Mustafi", "Defensa", 40000000, 100000);
+        Jugador j12 = new Jugador("Javi Fuego", "Medio", 20000000, 100000);
         
         //Traspaso t1 = new Traspaso(j1, equipo2, equipo1);
         //Traspaso t2 = new Traspaso(j9, equipo1, equipo2);
@@ -78,7 +78,7 @@ public class Main {
             try{
             System.out.println("1. Registrar un nuevo equipo" + "\n" + "2. Registrar un nuevo jugador " + "\n" + "3. Registrar un traspaso de jugador " + "\n"
                     + "4. Listar en pantalla los datos básicos de los equipos registrados" + "\n" + "5. Listar los jugadores de cada equipo" + "\n"
-                    + "6. Mostrar los traspasos realizados" + "\n" + "7. Modificar demarcacion" + "\n" + "8. Salir del programa" + "\n");
+                    + "6. Mostrar los traspasos realizados" + "\n" + "7. Modificar demarcacion" + "\n" + "8.Fair Play" + "\n" + "9. Salir del programa" + "\n");
 
             Scanner entradaEscaner = new Scanner(System.in);
 
@@ -115,6 +115,9 @@ public class Main {
                     System.out.println("Introduce la clausula del jugador");
                     String clausula = entradaEscaner.nextLine();
                     
+                    System.out.println("Introduce el salario del jugador");
+                    String salario_anual = entradaEscaner.nextLine();
+                    
                     //liga.listar_datos_equipos();
                     String equipos = liga.listar_datos_equipos();
                     System.out.println(equipos);
@@ -122,7 +125,7 @@ public class Main {
                     System.out.println("Introduce el id del equipo al que pertenecera el jugador");
                     String id_equipo = entradaEscaner.nextLine();
                     
-                    liga.nuevo_jugador(nombre_jugador, demarcacion, Integer.parseInt(clausula), Integer.parseInt(id_equipo));
+                    liga.nuevo_jugador(nombre_jugador, demarcacion, Integer.parseInt(clausula), Integer.parseInt(id_equipo),Integer.parseInt(salario_anual) );
                     
                     break;
                 
@@ -190,8 +193,20 @@ public class Main {
                     liga.modificar_jugador(Integer.parseInt(id_equipo_modificacion), Integer.parseInt(id_jugador_modificable), nueva_demarcacion);
                     
                     break;
-                
+                    
                 case "8":
+                    
+                    equipos = liga.listar_datos_equipos();
+                    System.out.println(equipos);
+                    
+                    System.out.println("Introduce el id del equipo a analizar");
+                    String id_equipo_fair_play = entradaEscaner.nextLine();
+                    
+                    liga.fair_play(Integer.parseInt(id_equipo_fair_play));
+                    
+                    break;
+                
+                case "9":
                     FileWriter fichero = null;
                     PrintWriter pw = null;
                     
@@ -233,7 +248,7 @@ public class Main {
             }
             }catch(Exception e3) { System.out.println( " \n Algún campo no escrito correctamente  \n");
         }
-        } while (!"8".equals(eleccion));
+        } while (!"9".equals(eleccion));
         
         
 
