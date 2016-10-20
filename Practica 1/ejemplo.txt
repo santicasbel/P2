@@ -1,0 +1,26 @@
+
+001	Valencia	 - Abonados:100000	 - Caja Actual:30000000 
+002	Barcelona	 - Abonados:500000	 - Caja Actual:120000000 
+003	Real Madrid	 - Abonados:400000	 - Caja Actual:100000000 
+  
+
+Valencia:
+	009	Rodrigo (Delantero)
+	010	Diego Alves (Portero)
+	011	Mustafi (Defensa)
+	012	Javi Fuego (Medio)
+
+Barcelona:
+	001	Leo Messi (Delantero)
+	002	Ter Stegen (Portero)
+	003	Pique (Defensa)
+	004	Busquets (Medio)
+
+Real Madrid:
+	005	Cristiano Ronaldo (Delantero)
+	006	Keylor Navas (Portero)
+	007	Sergio Ramos (Defensa)
+	008	Modric (Medio)
+  
+ 
+  
