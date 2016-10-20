@@ -42,6 +42,15 @@ public class Main {
         Jugador j10 = new Jugador("Diego Alves", "Portero", 30000000, 100000);
         Jugador j11 = new Jugador("Mustafi", "Defensa", 40000000, 100000);
         Jugador j12 = new Jugador("Javi Fuego", "Medio", 20000000, 100000);
+        Jugador j13 = new Jugador("Javi Fuego", "Delantero", 20000000, 100000);
+        Jugador j14 = new Jugador("Javi Fuego", "Delantero", 20000000, 100000);
+        Jugador j15 = new Jugador("Javi Fuego", "Portero", 20000000, 100000);
+        Jugador j16 = new Jugador("Javi Fuego", "Defensa", 20000000, 100000);
+        Jugador j17 = new Jugador("Javi Fuego", "Defensa", 20000000, 100000);
+        Jugador j18 = new Jugador("Javi Fuego", "Defensa", 20000000, 100000);
+        Jugador j19 = new Jugador("Javi Fuego", "Medio", 20000000, 100000);
+        Jugador j20 = new Jugador("Javi Fuego", "Medio", 20000000, 100000);
+        Jugador j21 = new Jugador("Javi Fuego", "Medio", 20000000, 100000);
         
         //Traspaso t1 = new Traspaso(j1, equipo2, equipo1);
         //Traspaso t2 = new Traspaso(j9, equipo1, equipo2);
@@ -51,6 +60,15 @@ public class Main {
         equipo1.setJugadores(j10);
         equipo1.setJugadores(j11);
         equipo1.setJugadores(j12);
+        equipo1.setJugadores(j13);
+        equipo1.setJugadores(j14);
+        equipo1.setJugadores(j15);
+        equipo1.setJugadores(j16);
+        equipo1.setJugadores(j17);
+        equipo1.setJugadores(j18);
+        equipo1.setJugadores(j19);
+        equipo1.setJugadores(j20);
+        equipo1.setJugadores(j21);
 
         equipo2.setJugadores(j1);
         equipo2.setJugadores(j2);
@@ -78,7 +96,7 @@ public class Main {
             try{
             System.out.println("1. Registrar un nuevo equipo" + "\n" + "2. Registrar un nuevo jugador " + "\n" + "3. Registrar un traspaso de jugador " + "\n"
                     + "4. Listar en pantalla los datos básicos de los equipos registrados" + "\n" + "5. Listar los jugadores de cada equipo" + "\n"
-                    + "6. Mostrar los traspasos realizados" + "\n" + "7. Modificar demarcacion" + "\n" + "8.Fair Play" + "\n" + "9. Salir del programa" + "\n");
+                    + "6. Mostrar los traspasos realizados" + "\n" + "7. Modificar demarcacion" + "\n" + "8. Fair Play" + "\n" + "9. Verificar demarcaciones de un equipo" + "\n" + "10. Salir del programa" + "\n");
 
             Scanner entradaEscaner = new Scanner(System.in);
 
@@ -109,7 +127,7 @@ public class Main {
                     System.out.println("Introduce el nombre del jugador");
                     String nombre_jugador = entradaEscaner.nextLine();
                     
-                    System.out.println("Introduce la posicion del jugador");
+                    System.out.println("Introduce la posicion del jugador(Delantero,Medio,Defensa,Portero)");
                     String demarcacion = entradaEscaner.nextLine();
                     
                     System.out.println("Introduce la clausula del jugador");
@@ -187,7 +205,7 @@ public class Main {
                     System.out.println("Introduce el id del jugador a modificar");
                     String id_jugador_modificable = entradaEscaner.nextLine();
                     
-                    System.out.println("Introduce la nueva demarcacion");
+                    System.out.println("Introduce la nueva demarcacion(Delantero,Medio,Defensa,Portero)");
                     String nueva_demarcacion = entradaEscaner.nextLine();
                     
                     liga.modificar_jugador(Integer.parseInt(id_equipo_modificacion), Integer.parseInt(id_jugador_modificable), nueva_demarcacion);
@@ -205,8 +223,20 @@ public class Main {
                     liga.fair_play(Integer.parseInt(id_equipo_fair_play));
                     
                     break;
-                
+                    
                 case "9":
+                    
+                    equipos = liga.listar_datos_equipos();
+                    System.out.println(equipos);
+                    
+                    System.out.println("Introduce el id del equipo del cual desea verificar las demarcaciones");
+                    String id_equipo_demarcaciones = entradaEscaner.nextLine();
+                    
+                    liga.verificar_demarcaciones(Integer.parseInt(id_equipo_demarcaciones));
+                    
+                    break;
+                
+                case "10":
                     FileWriter fichero = null;
                     PrintWriter pw = null;
                     
@@ -248,7 +278,7 @@ public class Main {
             }
             }catch(Exception e3) { System.out.println( " \n Algún campo no escrito correctamente  \n");
         }
-        } while (!"9".equals(eleccion));
+        } while (!"10".equals(eleccion));
         
         
 

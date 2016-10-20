@@ -68,7 +68,7 @@ public class Jugador {
 
         String id = String.format("%03d", this.id_jugador);
         
-        String s = id + "\t" + this.nombre + " (" + this.demarcacion + ")" + "\n";
+        String s = id + "\t" + this.nombre + " (" + this.demarcacion + ")" + " - Clausula: " + this.clausula + " - Salario: " + this.salario_anual + "\n";
 
         return s;
 

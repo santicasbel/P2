@@ -29,6 +29,7 @@ public class Liga {
         this.traspasos.add(t);
     }
 
+    //Funcion para listas los datos generales de los equipos
     public String listar_datos_equipos() {
 
         String item = "\n";
@@ -44,6 +45,7 @@ public class Liga {
 
     }
 
+    //Funcion para listar los jugadores de cada uno de los equipos
     public String listar_jugadores() {
 
         String jugadores = "";
@@ -57,6 +59,7 @@ public class Liga {
         return jugadores;
     }
 
+    //Funcion para listar los jugadores de un quipo concreto
     public String listar_jugadores(int id) {
 
         e = equipos.get(id - 1);
@@ -66,6 +69,7 @@ public class Liga {
            return jugadores;
     }
 
+    //Funcion para ordenar y mostrar los traspasos de manera descendente en funcion de la clausula
     public String traspasos_realizados() {
 
         this.ordenar(traspasos);
@@ -81,6 +85,7 @@ public class Liga {
         return item;
     }
 
+    //Funcion para ordenar el ArrayList de traspasos
     public void ordenar(ArrayList<Traspaso> traspasos) {
 
         for (int i = 0; i < (traspasos.size() - 1); i++) {
@@ -96,6 +101,7 @@ public class Liga {
         }
     }
 
+    //Funcion para registrar un nuevo equipo, donde se le pasa el nombre, caja, abonados y gastos generales del equipo
     public void nuevo_equipo(String nombre, int caja_actual, int abonados, int gastos_generales) {
 
         Equipo e_aux = new Equipo(nombre, caja_actual, abonados, gastos_generales);
@@ -106,16 +112,25 @@ public class Liga {
 
     }
 
+    //Funcion para registrar un nuevo jugador, donde se le pasa el nombre, demarcacion, clausula, equipo al que va ha pertenecer y sueldo del jugador
     public void nuevo_jugador(String nombre, String demarcacion, int clausula, int id_equipo, int sueldo_anual) {
 
-        Jugador j_aux = new Jugador(nombre, demarcacion, clausula, sueldo_anual);
+        if(demarcacion.equals("Delantero") || demarcacion.equals("Defensa") || demarcacion.equals("Medio") || demarcacion.equals("Portero")){
+            
+            Jugador j_aux = new Jugador(nombre, demarcacion, clausula, sueldo_anual);
 
-        this.equipos.get(id_equipo - 1).setJugadores(j_aux);
+            this.equipos.get(id_equipo - 1).setJugadores(j_aux);
 
-        System.out.println("\nJugador registrado correctamente\n");
+            System.out.println("\nJugador registrado correctamente\n");
+            
+        }
+        
+        else
+            System.out.println("\nDemarcacion del jugador incorrecta\n");
 
     }
     
+    //Funcion para realizar y registrar un traspaso, donde se le pasa el id del equipo origen y destino del traspaso asi como el id del jugador a traspasar
     public void traspaso(int id_origen, int id_jugador, int id_destino){
         
         Equipo e1 = equipos.get(id_origen - 1);
@@ -148,18 +163,37 @@ public class Liga {
         
     }
     
+    //Funcion para modificar la demarcacion de un jugador de un equipo concreto, donde se le pasa el id del equipo al que pertenece el jugador, el id del jugador y su nueva demarcacion
     public void modificar_jugador(int id_equipo_modificacion, int id_jugador_modificable, String nueva_demarcacion){
         
-        Equipo e1 = equipos.get(id_equipo_modificacion - 1);
+        if(nueva_demarcacion.equals("Delantero") || nueva_demarcacion.equals("Defensa") || nueva_demarcacion.equals("Medio") || nueva_demarcacion.equals("Portero")){
+            
+            Equipo e1 = equipos.get(id_equipo_modificacion - 1);
 
-        e1.modificar_jugador(id_jugador_modificable, nueva_demarcacion);
+            e1.modificar_jugador(id_jugador_modificable, nueva_demarcacion);
+            
+        }
+        
+        else
+            System.out.println("La nueva demarcacion no es correcta\n");
+        
     }
     
+    //Funcion para comprobar si un equipo es capaz de soportar todos los gastos que tiene con su caja actual, se le pasa el id del equipo que se desea evaluar
     public void fair_play(int id_equipo_fair_play){
         
         Equipo e1 = equipos.get(id_equipo_fair_play - 1);
         
         e1.fair_play();
+        
+    }
+    
+    //Funcion para verificar si un equipo tiene la cantidad de jugadores necesarios para poder registrarse en la liga, se le pasa el id del equipo que se desea evaluar 
+    public void verificar_demarcaciones(int id_equipo_demarcaciones){
+        
+        Equipo e1 = this.equipos.get(id_equipo_demarcaciones - 1);
+        
+        e1.verificar_demarcaciones();
         
     }
 

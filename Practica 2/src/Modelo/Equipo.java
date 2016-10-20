@@ -70,6 +70,7 @@ public class Equipo {
         this.jugadores.add(j);
     }
     
+    //Funcion para eliminar un jugador del equipo que realiza la llamada de la funcion, se le pasa el id del jugador que se desea eliminar
     public Jugador eliminar_jugador(int id){
         
         boolean encontrado = false;
@@ -96,6 +97,7 @@ public class Equipo {
         
     }
     
+    //Funcion para listar la informacion de los jugadores del equipo
     public String listar_jugadores(){
         
         String item;
@@ -112,6 +114,7 @@ public class Equipo {
         
     }
     
+    //Funcion para encontrar y devolver un jugador del equipo que realiza la llamada de la funcion, se le pasa el id del jugador que se desea obtener
     public Jugador getJugador(int id_jugador){
         
         boolean encontrado = false;
@@ -136,6 +139,7 @@ public class Equipo {
         
     }
     
+    //Funcion para modificar la demarcacion de un jugador del equipo que realiza la llamada de la funcion, se le pasa el id del jugador que se desea modificar y su nueva demarcacion
     public void modificar_jugador(int id_jugador_modificable, String nueva_demarcacion){
         
         int i = 0;
@@ -158,6 +162,7 @@ public class Equipo {
         
     }
     
+    //Funcion para comprobar si el equipo que realiza la llamada de la funcion tiene suficiente caja actual para hacer frente a todos sus gastos
     public void fair_play(){
         
         int total = 0;
@@ -174,6 +179,37 @@ public class Equipo {
             System.out.println("El equipo cumple el fair play\n");
         else
             System.out.println("El equipo no cumple el fair play\n");
+        
+    }
+    
+    //Funcion para verificar si el equipo que realiza la llamada tiene los jugadores minimos para poder registrarse en la liga
+    public void verificar_demarcaciones(){
+        
+        int porteros = 0;
+        int defensas = 0;
+        int medios = 0;
+        int delanteros = 0;
+        
+        for(int i = 0; i < this.jugadores.size(); i++){
+            
+            if("Portero".equals(this.jugadores.get(i).getDemarcacion()))
+                porteros += 1;
+            if("Delantero".equals(this.jugadores.get(i).getDemarcacion()))
+                delanteros += 1;
+            if("Defensa".equals(this.jugadores.get(i).getDemarcacion()))
+                defensas += 1;
+            if("Medio".equals(this.jugadores.get(i).getDemarcacion()))
+                medios += 1;
+            
+        }
+        
+        System.out.println("El equipo " + this.nombre + "tiene:\n" + "\t- " + porteros + " porteros\n" + "\t- " + defensas + " defensas\n" 
+                           + "\t- " + medios + " medios\n" + "\t- " + delanteros + " delanteros\n\n");
+        
+        if(porteros >= 2 && defensas >= 4 && medios >= 4 && delanteros >= 3)
+           System.out.println("El equipo si cumple los requisitos de las demarcaciones\n");
+        else
+           System.out.println("El equipo no cumple los requisitos de las demarcaciones\n");
         
     }
     
